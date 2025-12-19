@@ -17,7 +17,7 @@ const Layout: React.FC<LayoutProps> = ({ children, isAdmin, onLogout }) => {
   const navItems = [
     { name: '협회소개', path: '/about' },
     { name: '주요활동', path: '/activities' },
-    { name: '강승원 이사', path: '/profile' },
+    { name: '설립자 강승원', path: '/profile' },
     { name: '뉴스룸/자료실', path: '/bbs' },
   ];
 
