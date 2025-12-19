@@ -18,7 +18,6 @@ const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [posts, setPosts] = useState<Post[]>([]);
 
-  // Initialize data
   useEffect(() => {
     const savedPosts = localStorage.getItem('kpii_posts');
     if (savedPosts) {
@@ -32,7 +31,6 @@ const App: React.FC = () => {
     if (sessionAdmin === 'true') {
       setIsAdmin(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLogout = () => {
@@ -52,7 +50,7 @@ const App: React.FC = () => {
           <Route path="/bbs/:id" element={<BBSView posts={posts} setPosts={setPosts} isAdmin={isAdmin} />} />
           <Route 
             path="/bbs/write" 
-            element={isAdmin ? <BBSWrite setPosts={setPosts} /> : <Navigate to="/login" />} 
+            element={isAdmin ? <BBSWrite setPosts={setPosts} posts={posts} /> : <Navigate to="/login" />} 
           />
           <Route 
             path="/bbs/edit/:id" 
